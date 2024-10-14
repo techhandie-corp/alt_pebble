@@ -1,13 +1,14 @@
 ---
 import Page1 from "../components/Page1.astro";
 import Page2 from "../components/Page2.astro";
-import menuid from "../layouts/Menu.astro";
-const title = {menuid};
+import Layout from "../layouts/Layout.astro";
+const title = Astro.props;
 ---
 <div class="container">
     <div class="heading center">{title}</div>
     <p class="just">Literary works to discover ...</p>
     <p class="just">Different genres</p>
+    <slot />
 </div>
 <style>
     .container {

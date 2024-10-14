@@ -2,6 +2,7 @@
 export interface Props {
 	title: string;
 }
+import Content from "../components/Content.astro";
 import Menu from "../layouts/Menu.astro";
 import Footer from "../layouts/Footer.astro";
 const { title } = Astro.props;
@@ -20,7 +21,7 @@ let {menuId} = Astro.props;
 	</head>
 	<body>
 		<Menu />
-		<slot />
+		<Content />
 		<Footer />
 		<script>
 
