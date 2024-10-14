@@ -4,18 +4,9 @@ export interface Props {
 }
 import Menu from "../layouts/Menu.astro";
 import Footer from "../layouts/Footer.astro";
-const menuoptions = ["m1","m2","m3"];
 const { title } = Astro.props;
 let menuId = Astro.props;
-function getId() {
-	menuoptions.forEach((opt) => {
-		let idMark: any = document.getElementById(opt);
-		idMark.addEventListener("click", (event) => {
-		let targetid = event.target.id;
-		menuId = targetid;
-		});
-	});
-};
+
 ---
 
 <!DOCTYPE html>
@@ -28,7 +19,7 @@ function getId() {
 		<title>{title}</title>
 	</head>
 	<body>
-		<Menu menuId= {getId} />
+		<Menu />
 		<slot />
 		<Footer />
 		<script>
