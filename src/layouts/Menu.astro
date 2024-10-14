@@ -1,18 +1,23 @@
 ---
-const menuoptions = ["m1","m2","m3"];
-let menuid = Astro.props;
-
+const getId = Astro.props;
 ---
 
 <navbar id="nav">
     <ul>
-        <li><a id="m1" href="/Page1" onclick("getId")>Option 1</a></li>
-        <li><a id="m2" href="/Page2" onclick("getId")>Option 2</a></li>
-        <li><a id="m3" href="/Page3" onclick("getId")>Option 3</a></li>
+        <li>
+          <a id="m1" href="/Page1" onclick("getId")>Option 1</a>
+        </li>
+        <li>
+          <a id="m2" href="/Page2" onclick("getId")>Option 2</a>
+        </li>
+        <li>
+          <a id="m3" href="/Page3" onclick("getId")>Option 3</a>
+        </li>
     </ul>    
 </navbar>
 
 <style>
+
   navbar#nav {
     background-color: yellow !important;
     height: 100px;
