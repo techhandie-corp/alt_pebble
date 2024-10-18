@@ -7,7 +7,17 @@ import Menu from "../layouts/Menu.astro";
 import Footer from "../layouts/Footer.astro";
 const { title } = Astro.props;
 let {menuId} = Astro.props;
-
+let optionid = Astro.props;
+const menuoptions = ["m1","m2","m3"];
+function getId() {
+	menuoptions.forEach((opt) => {
+		let idMark: any = document.getElementById(opt);
+		idMark.addEventListener("click", (event) => {
+		let targetid = event.target.id;
+		menuId = targetid;
+		});
+	});
+};
 ---
 
 <!DOCTYPE html>
@@ -20,8 +30,8 @@ let {menuId} = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body>
-		<Menu />
-		<Content />
+		<Menu optionid={getId}/>
+		<Content option={optionid}/>
 		<Footer />
 		<script>
 

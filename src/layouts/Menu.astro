@@ -1,15 +1,6 @@
 ---
 let menuId = Astro.props;
-const menuoptions = ["m1","m2","m3"];
-const getid = function getId() {
-	menuoptions.forEach((opt) => {
-		let idMark: any = document.getElementById(opt);
-		idMark.addEventListener("click", (event) => {
-		let targetid = event.target.id;
-		menuId = targetid;
-		});
-	});
-};
+
 ---
 
 <navbar id="nav">
