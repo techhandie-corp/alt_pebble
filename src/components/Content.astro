@@ -2,15 +2,20 @@
 import Page1 from "../components/Page1.astro";
 import Page2 from "../components/Page2.astro";
 import Layout from "../layouts/Layout.astro";
-const title = Astro.props;
+// const title = Astro.props;
 let option = Astro.props;
 ---
-<div class="container">
-    <div class="heading center">{title}</div>
-    <p class="just">Literary works to discover ...</p>
-    <p class="just">Different genres</p>
-    <slot />
-</div>
+<Layout>
+    <div class="container">
+        <div class="heading center">{title}</div>
+        <p class="just">Literary works to discover ...</p>
+        <p class="just">Different genres</p>
+        <slot />
+    </div>
+</Layout>
+<script>
+    
+</script>
 <style>
     .container {
         margin: 40px 40px;

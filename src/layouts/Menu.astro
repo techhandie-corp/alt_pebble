@@ -1,33 +1,31 @@
 ---
-let {title, menuId} = Astro.props;
-
-
+const {title, menuId} = Astro.props;
 ---
 
 <navbar id="nav">
     <ul>
         <li>
-          <a id="m1" href="/Page1" onclick("getId")>Option 1</a>
+          <a id="m1" href="/Page1" onclick("menuId")>Option 1</a>
         </li>
         <li>
-          <a id="m2" href="/Page2" onclick("getId")>Option 2</a>
+          <a id="m2" href="/Page2" onclick("menuId")>Option 2</a>
         </li>
         <li>
-          <a id="m3" href="/Page3" onclick("getId")>Option 3</a>
+          <a id="m3" href="/Page3" onclick("menuId")>Option 3</a>
         </li>
     </ul>    
 </navbar>
 
 <script>
-  var menuId;
+  
   const menuoptions = ["m1","m2","m3"];
-  function getId() {
+  var menuId = function getId() {
     menuoptions.forEach((opt) => {
       let idMark: any = document.getElementById(opt);
       idMark.addEventListener("click", (event) => {
       let targetid = event.target.id;
-      menuId = targetid;
-      return menuId;
+      let menuid = targetid;
+      return menuid;
       });
     });
   };
