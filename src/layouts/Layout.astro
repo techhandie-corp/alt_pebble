@@ -1,14 +1,16 @@
 ---
-export interface Props {
-	title: string;
-	menuId: string;
-}
 import Content from "../components/Content.astro";
 import Menu from "../layouts/Menu.astro";
 import Footer from "../layouts/Footer.astro";
-let { title } = Astro.props;
+function getTitle(m) {
+	let t;
+	if (m == "m1"){t="Page 1"}
+	if (m == "m2"){t="Page 2"}
+	if (m == "m3"){t="Page 3"}
+	return t;
+};
 let { menuId } = Astro.props;
-let optionid = Astro.props;
+let title = getTitle(menuId);
 ---
 
 <!DOCTYPE html>
@@ -18,18 +20,11 @@ let optionid = Astro.props;
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} />
-		<title>
-			{
-				if (menuId == "m1"){title="Page 1"}
-				if (menuId == "m2"){title="Page 2"}
-				if (menuId == "m3"){title="Page 3"}
-				return title;
-			}
-		</title>
+		<title>{ title }</title>
 	</head>
 	<body>
 		<Menu />
-		<Content optionid={menuId} />
+		<Content optionid={menuId} tname={title} />
 		<Footer />
 		<script>
 

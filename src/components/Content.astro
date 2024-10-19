@@ -2,19 +2,34 @@
 import Page1 from "../components/Page1.astro";
 import Page2 from "../components/Page2.astro";
 import Layout from "../layouts/Layout.astro";
-// const title = Astro.props;
-let option = Astro.props;
+let {option, title} = Astro.props;
+function getComp(id) [
+        switch (id) {
+        case "m1":
+            <Page1 />;
+            break;
+        case "m2":
+            <Page2 />;
+            break;
+        case "m3":
+            <Page3 />;
+            break;
+        default:
+            "Select a page from the menu.";
+        };
+    ];
+const comp = getComp(option);
 ---
-<Layout>
+<Layout optionid={option}>
     <div class="container">
         <div class="heading center">{title}</div>
         <p class="just">Literary works to discover ...</p>
         <p class="just">Different genres</p>
-        <slot />
+        <slot name={comp}/>
     </div>
 </Layout>
 <script>
-    
+  
 </script>
 <style>
     .container {
