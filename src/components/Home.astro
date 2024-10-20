@@ -1,35 +1,13 @@
 ---
-import Page1 from "../components/Page1.astro";
-import Page2 from "../components/Page2.astro";
-import Page3 from "../components/Page3.astro";
-import Home from "../components/Home.astro";
 import Layout from "../layouts/Layout.astro";
-import Card from "../components/Card.astro";
 let {option, title} = Astro.props;
-function getComp(id) {
-    switch (id) {
-        case "m1":
-        <Page1 />;
-        break;
-        case "m2":
-        <Page2 />;
-        break;
-        case "m3":
-        <Page3 />;
-        break;
-        default:
-        <Home />;
-    };
-};
-
-// const comp = getComp(option);
 ---
+
 <Layout>
     <div class="container">
         <div class="heading center">{title}</div>
         <p class="just">Literary works to discover ...</p>
         <p class="just">Different genres</p>
-        {getComp(option)}
     </div>
 </Layout>
 <script>
