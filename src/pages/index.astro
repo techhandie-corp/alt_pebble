@@ -1,12 +1,51 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Content from '../components/Content.astro';
-
+import Page1 from '../components/Page1.astro';
+import Page2 from '../components/Page2.astro';
+import Page3 from '../components/Page3.astro';
+import Home from '../components/Home.astro';
+const {option, title} = Astro.props;
+const options = ["h0","p1","p2","p3"];
+function toggleIt(id){
+    const h = document.getElementById('h0');
+    const p1 = document.getElementById('p1');
+    const p2 = document.getElementById('p2');
+    const p3 = document.getElementById('p3');
+    switch(id) {
+        case "m1":
+            if(h.getAttribute("class") == "toggle-on"){h.classList.remove("toggle-on");h.classList.add("toggle-off");};    
+            if(p1.getAttribute("class") == "toggle-off"){p1.classList.remove("toggle-off"); p1.classList.add("toggle-on");};
+            if(p2.getAttribute("class") == "toggle-on"){p2.classList.remove("toggle-on"); p2.classList.add("toggle-off");};
+            if(p3.getAttribute("class") == "toggle-on"){p3.classList.remove("toggle-on"); p3.classList.add("toggle-off");};
+            break;
+        case "m2":
+            if(h.getAttribute("class") == "toggle-on"){h.classList.remove("toggle-on");h.classList.add("toggle-off");};    
+            if(p2.getAttribute("class") == "toggle-off"){p2.classList.remove("toggle-off"); p2.classList.add("toggle-on");};
+            if(p3.getAttribute("class") == "toggle-on"){p3.classList.remove("toggle-on"); p3.classList.add("toggle-off");};
+            if(p1.getAttribute("class") == "toggle-on"){p1.classList.remove("toggle-on"); p1.classList.add("toggle-off");};
+            break;
+        case "m3":
+            if(h.getAttribute("class") == "toggle-on"){h.classList.remove("toggle-on");h.classList.add("toggle-off");};
+            if(p3.getAttribute("class") == "toggle-on"){p3.classList.remove("toggle-on"); p3.classList.add("toggle-off");};
+            if(p2.getAttribute("class") == "toggle-on"){p2.classList.remove("toggle-on"); p2.classList.add("toggle-off");};
+            if(p1.getAttribute("class") == "toggle-on"){p1.classList.remove("toggle-on"); p1.classList.add("toggle-off");};
+            break;
+        default:
+            p3.classList.remove("toggle-on"); p3.classList.add("toggle-off");
+            p2.classList.remove("toggle-on"); p2.classList.add("toggle-off");
+            p1.classList.remove("toggle-on"); p1.classList.add("toggle-off");
+            if(h.getAttribute("class") == "toggle-off"){h.classList.remove("toggle-off");h.classList.add("toggle-on");};
+    };
+};
 ---
 
 <Layout>
     <main>
-        <Content />
+        <Home id="h0" class="toggle-on" />
+        <Page1 id="p1" class="toggle-off" {toggleIt(option)} />
+        <Page2 id="p2" class="toggle-off" {toggleIt(option)} />
+        <Page3 id="p3" class="toggle-off" {toggleIt(option)} />
     </main>
 </Layout>
 
@@ -21,5 +60,13 @@ import Content from '../components/Content.astro';
 
     main {
         margin: auto;
+    }
+
+    .toggle-on {
+        display: flex;
+    }
+
+    .toggle-off {
+        display: none;
     }
 </style>
