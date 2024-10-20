@@ -43,9 +43,9 @@ function toggleIt(id){
 <Layout>
     <main>
         <Home id="h0" class="toggle-on" />
-        <Page1 id="p1" class="toggle-off" {toggleIt(option)} />
-        <Page2 id="p2" class="toggle-off" {toggleIt(option)} />
-        <Page3 id="p3" class="toggle-off" {toggleIt(option)} />
+        <Page1 id="p1" class="toggle-off" onchange("toggleIt(option)") />
+        <Page2 id="p2" class="toggle-off" onchange("toggleIt(option)") />
+        <Page3 id="p3" class="toggle-off" onchange("toggleIt(option)") />
     </main>
 </Layout>
 
