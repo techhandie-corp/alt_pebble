@@ -24,7 +24,7 @@ let title = getTitle(menuId);
 	</head>
 	<body>
 		<Menu />
-		<Content optionid={menuId} tname={title} />
+		<slot optionid={menuId} tname={title} />
 		<Footer />
 		<script>
 

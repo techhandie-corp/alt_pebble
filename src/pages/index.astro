@@ -1,72 +1,83 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import Content from '../components/Content.astro';
-import Page1 from '../components/Page1.astro';
-import Page2 from '../components/Page2.astro';
-import Page3 from '../components/Page3.astro';
-import Home from '../components/Home.astro';
-const {option, title} = Astro.props;
-const options = ["h0","p1","p2","p3"];
-function toggleIt(id){
-    const h = document.getElementById('h0');
-    const p1 = document.getElementById('p1');
-    const p2 = document.getElementById('p2');
-    const p3 = document.getElementById('p3');
-    switch(id) {
-        case "m1":
-            if(h.getAttribute("class") == "toggle-on"){h.classList.remove("toggle-on");h.classList.add("toggle-off");};    
-            if(p1.getAttribute("class") == "toggle-off"){p1.classList.remove("toggle-off"); p1.classList.add("toggle-on");};
-            if(p2.getAttribute("class") == "toggle-on"){p2.classList.remove("toggle-on"); p2.classList.add("toggle-off");};
-            if(p3.getAttribute("class") == "toggle-on"){p3.classList.remove("toggle-on"); p3.classList.add("toggle-off");};
-            break;
-        case "m2":
-            if(h.getAttribute("class") == "toggle-on"){h.classList.remove("toggle-on");h.classList.add("toggle-off");};    
-            if(p2.getAttribute("class") == "toggle-off"){p2.classList.remove("toggle-off"); p2.classList.add("toggle-on");};
-            if(p3.getAttribute("class") == "toggle-on"){p3.classList.remove("toggle-on"); p3.classList.add("toggle-off");};
-            if(p1.getAttribute("class") == "toggle-on"){p1.classList.remove("toggle-on"); p1.classList.add("toggle-off");};
-            break;
-        case "m3":
-            if(h.getAttribute("class") == "toggle-on"){h.classList.remove("toggle-on");h.classList.add("toggle-off");};
-            if(p3.getAttribute("class") == "toggle-on"){p3.classList.remove("toggle-on"); p3.classList.add("toggle-off");};
-            if(p2.getAttribute("class") == "toggle-on"){p2.classList.remove("toggle-on"); p2.classList.add("toggle-off");};
-            if(p1.getAttribute("class") == "toggle-on"){p1.classList.remove("toggle-on"); p1.classList.add("toggle-off");};
-            break;
-        default:
-            p3.classList.remove("toggle-on"); p3.classList.add("toggle-off");
-            p2.classList.remove("toggle-on"); p2.classList.add("toggle-off");
-            p1.classList.remove("toggle-on"); p1.classList.add("toggle-off");
-            if(h.getAttribute("class") == "toggle-off"){h.classList.remove("toggle-off");h.classList.add("toggle-on");};
-    };
-};
+// import Layout from "../layouts/Layout.astro";
+// let {option, title} = Astro.props;
+const year = "2024";
+const webmaster = "https://www.techhandie.com/";
+const company = "Pebble Ministries";
+const title = "";
 ---
+<!--<!DOCTYPE html>-->
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="generator" content={Astro.generator} />
+        <title>{ title }</title>
+    </head>
+    <body>
+        <navbar id="nav">
+            <ul>
+                <li>
+                  <a id="m1" href="/Page1" onclick("menuId")>Option 1</a>
+                </li>
+                <li>
+                  <a id="m2" href="/Page2" onclick("menuId")>Option 2</a>
+                </li>
+                <li>
+                  <a id="m3" href="/Page3" onclick("menuId")>Option 3</a>
+                </li>
+            </ul>    
+        </navbar>
+        <div class="heading center">{title}</div>
+        <p class="just">Literary works to discover ...</p>
+        <p class="just">Different genres</p>
+        <footer>
+            <div class="f-container">
+                <span><div>&copy {year}</div> All rights and priveleges reserved for {company}</span>
+                <div class="italic">{webmaster}</div>
+            </div>
+        </footer>
+    </body>
+</html>
 
-<Layout>
-    <main>
-        <Home id="h0" class="toggle-on" />
-        <Page1 id="p1" class="toggle-off" onchange("toggleIt(option)") />
-        <Page2 id="p2" class="toggle-off" onchange("toggleIt(option)") />
-        <Page3 id="p3" class="toggle-off" onchange("toggleIt(option)") />
-    </main>
-</Layout>
 
+
+
+    
+<script>
+</script>
 <style>
-	:root {
-		--astro-gradient: linear-gradient(0deg, #4f39fa, #da62c4);
-	}
-
-	h1 {
-		margin: 2rem 0;
-	}
-
-    main {
-        margin: auto;
+    .container {
+        margin: 40px 40px;
+    }
+    .just{
+        text-align: justify;
     }
 
-    .toggle-on {
-        display: flex;
+    .center {
+        text-align: center;
     }
 
-    .toggle-off {
-        display: none;
+    .heading {
+        font-size: 1.5rem;
+        color: #310754;
+        font-style: oblique;
     }
+
+    p {
+        color: #121254;
+    }
+    .f-container {
+        display: inline-flex;
+        flex-flow: row nowrap;
+        justify-content: center;
+        align-items: center;
+        color: crimson;
+        font-size: 0.875rem;
+    }
+    .italic {
+        font-style: oblique;
+    }
+
 </style>
